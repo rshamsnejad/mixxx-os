@@ -1,0 +1,6 @@
+<!DOCTYPE SoundManagerConfig>
+<SoundManagerConfig latency="5" samplerate="48000" api="ALSA" deck_count="4" force_network_clock="0" sync_buffers="2">
+ <SoundDevice alsaHwDevice="" portAudioIndex="10" name="default">
+  <output index="0" channel="0" type="Master" channel_count="2"/>
+ </SoundDevice>
+</SoundManagerConfig>
