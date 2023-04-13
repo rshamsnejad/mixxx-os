@@ -13,14 +13,18 @@ ARG IMAGE_NAME="${IMAGE_NAME}"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 
 
-
+# Package overrides and layering
 ADD build.sh /tmp/
 ADD packages.json /tmp/
 RUN /tmp/build.sh
 
+# Flatpaks setup
 ADD flatpaks.txt /tmp/
 ADD install-flatpaks.sh /tmp/
 RUN /tmp/install-flatpaks.sh
+
+# Default user config
+ADD root/etc/skel /etc/skel
 
 RUN rm -rf /tmp/* /var/*
 RUN ostree container commit
