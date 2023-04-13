@@ -1,5 +1,12 @@
 #!/bin/sh
 
+################################################################################
+##################### File modified from original fork #########################
+################################################################################
+
+# WARNING : using Windows line-endings on this file prevents it from running in
+# container
+
 set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
@@ -16,13 +23,13 @@ if [[ "${#EXCLUDED_PACKAGES[@]}" -gt 0 ]]; then
     EXCLUDED_PACKAGES=($(rpm -qa --queryformat='%{NAME} ' ${EXCLUDED_PACKAGES[@]}))
 fi
 
-wget -P /tmp/rpms \
-    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-${RELEASE}.noarch.rpm \
-    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${RELEASE}.noarch.rpm
+# wget -P /tmp/rpms \
+#     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-${RELEASE}.noarch.rpm \
+#     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${RELEASE}.noarch.rpm
 
-rpm-ostree install \
-    /tmp/rpms/*.rpm \
-    fedora-repos-archive
+# rpm-ostree install \
+#     /tmp/rpms/*.rpm \
+#     fedora-repos-archive
 
 if [[ "${#INCLUDED_PACKAGES[@]}" -gt 0 && "${#EXCLUDED_PACKAGES[@]}" -eq 0 ]]; then
     rpm-ostree install \
