@@ -1,0 +1,13 @@
+[Desktop Entry]
+Categories=Qt;AudioVideo;Audio;Midi;Mixer;Player;Recorder;Sequencer;
+Comment=A digital DJ interface
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=mixxx --file-forwarding org.mixxx.Mixxx @@u %U @@
+GenericName=Digital DJ interface
+Icon=org.mixxx.Mixxx
+Name=Mixxx
+StartupNotify=true
+Terminal=false
+Type=Application
+Version=1.0
+X-Desktop-File-Install-Version=0.26
+X-Flatpak=org.mixxx.Mixxx

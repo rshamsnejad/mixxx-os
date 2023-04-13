@@ -1,0 +1,9 @@
+[MainWindow]
+990x776 screen: Height=517
+990x776 screen: Width=514
+State=AAAA/wAAAAD9AAAAAAAAAgIAAAHnAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+
+[WalletEditor]
+AlwaysShowContents=false
+SplitterSize=227,260
