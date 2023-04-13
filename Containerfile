@@ -23,8 +23,8 @@ ADD flatpaks.txt /tmp/
 ADD install-flatpaks.sh /tmp/
 RUN /tmp/install-flatpaks.sh
 
-# Default user config
-ADD root/etc/skel /etc/skel
+# Default configurations
+ADD root/etc /etc
 
 RUN rm -rf /tmp/* /var/*
 RUN ostree container commit
