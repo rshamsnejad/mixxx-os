@@ -14,14 +14,14 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 
 
 
-ADD build.sh /tmp/build.sh
-# ADD post-install.sh /tmp/post-install.sh
-ADD packages.json /tmp/packages.json
-
-# COPY --from=ghcr.io/ublue-os/config:latest /rpms /tmp/rpms
-
+ADD build.sh /tmp/
+ADD packages.json /tmp/
 RUN /tmp/build.sh
-# RUN /tmp/post-install.sh
+
+ADD flatpaks.txt /tmp/
+ADD install-flatpaks.sh /tmp/
+RUN /tmp/install-flatpaks.sh
+
 RUN rm -rf /tmp/* /var/*
 RUN ostree container commit
 RUN mkdir -p /var/tmp && chmod -R 1777 /var/tmp
